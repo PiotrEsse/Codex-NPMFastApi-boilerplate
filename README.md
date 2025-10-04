@@ -1,6 +1,5 @@
 # FastAPI + React Full-Stack Boilerplate
 
-
 This repository is a universal starter kit for projects that need a FastAPI backend and a React (Vite + TypeScript) frontend living side-by-side inside the same VS Code devcontainer. It is tuned for the provided Docker stack (Python 3.12, Node.js 20, PostgreSQL, Redis) so you can focus on building features instead of wiring infrastructure.
 
 ## What You Get
@@ -58,7 +57,7 @@ This repository is a universal starter kit for projects that need a FastAPI back
 - Introduce CI/CD, linting, type checking, or containerized deployment as needed.
 
 For detailed configuration options, troubleshooting tips, and architecture notes, consult the READMEs inside the [`Backend`](Backend/README.md) and [`Frontend`](Frontend/README.md) directories.
-=======
+
 This repository provides a batteries-included starting point for new full-stack projects using FastAPI on the backend and React (Vite + TypeScript) on the frontend. The structure is designed for use with VS Code devcontainers and a Docker stack that already includes PostgreSQL and Redis.
 
 ## Project Structure
@@ -100,5 +99,4 @@ This repository provides a batteries-included starting point for new full-stack 
 - Extend models and routers to match your application's domain.
 - Add CI/CD workflows, linting, or additional tooling as needed.
 - Configure production deployment (Docker, cloud services, etc.).
-
 
