@@ -1,5 +1,5 @@
 {
-  "name": "react-fastapi-boilerplate-script",
+  "name": "codex-npmfastapi-boilerplate",
   "dockerComposeFile": "docker-compose.yml",
   "service": "app",
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
