@@ -4,7 +4,7 @@ This repository is a universal starter kit for projects that need a FastAPI back
 
 ## What You Get
 
-- **Production-ready authentication flow** – FastAPI endpoints for register/login/refresh, JWT access + refresh tokens, password hashing, and a persisted session on the frontend.
+- **Production-ready authentication flow** – FastAPI endpoints for register/login/refresh, JWT access + refresh tokens, Argon2 password hashing, and a persisted session on the frontend.
 - **Async SQLAlchemy setup** – PostgreSQL-backed user model, Alembic migrations, and pytest scaffolding for future tests.
 - **Typed React frontend** – Vite, React Router, React Query, Tailwind CSS, and an auth-aware dashboard with protected routing.
 - **Developer ergonomics** – Simple `requirements.txt` + `npm install` workflow, `.env.example` templates, and docs in each app to guide setup.
@@ -21,12 +21,13 @@ This repository is a universal starter kit for projects that need a FastAPI back
 ### Backend Highlights
 - Located in [`Backend/`](Backend/README.md) with a clear separation between configuration, database models, services, and routers.
 - Ships with an initial Alembic migration that creates the `users` table and a `/health` endpoint that checks database connectivity.
+- Superuser-only `/users` management endpoints let you list, create, update, or delete accounts in addition to the `/users/me` profile route.
 - Includes pytest setup (`Backend/tests`) and environment configuration via `.env` (copy from `Backend/app/.env.example`).
 
 ### Frontend Highlights
 - Located in [`Frontend/`](Frontend/README.md) and bootstrapped with Vite for fast dev experience.
 - Authentication context manages tokens, persists sessions, and automatically refreshes access tokens through Axios interceptors.
-- Prebuilt pages: Login, Register, and a protected Dashboard consuming the `/users/me` endpoint.
+- Prebuilt pages: Login, Register, a protected Dashboard, and a superuser-only User Management panel with CRUD controls.
 
 ## Quick Start
 
@@ -48,7 +49,7 @@ This repository is a universal starter kit for projects that need a FastAPI back
    npm run dev
    ```
    The frontend is served at `http://localhost:5173`.
-4. **Login and explore.** Register a new user, then sign in to reach the protected dashboard. The frontend will keep your session active by refreshing tokens in the background.
+4. **Login and explore.** Register a new user, then sign in to reach the protected dashboard. If you promote an account to superuser you can access the user management panel at `/admin/users`. The frontend keeps your session active by refreshing tokens in the background.
 
 ## Next Steps for Your Project
 

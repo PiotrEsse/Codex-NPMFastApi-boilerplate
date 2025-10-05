@@ -54,3 +54,7 @@ Frontend/
 
 See [`.env.example`](.env.example) for configuration options.
 
+## User Management Panel
+
+Superusers have access to `/admin/users`, a management view that lists all accounts and supports creating, editing, activating/deactivating, promoting, or deleting users. The view talks directly to the backend `/users` endpoints and reuses the shared authentication context and React Query cache.
+

@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "react-router-dom";
 
 import { fetchCurrentUser } from "../api/auth";
 import { useAuth } from "../auth/AuthProvider";
@@ -15,7 +16,16 @@ export function DashboardPage() {
     <div className="min-h-screen bg-slate-100">
       <header className="bg-white shadow">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-          <h1 className="text-xl font-semibold text-slate-800">Dashboard</h1>
+          <nav className="flex items-center gap-4 text-sm font-medium text-slate-700">
+            <Link className="transition hover:text-slate-900" to="/dashboard">
+              Dashboard
+            </Link>
+            {user?.is_superuser ? (
+              <Link className="transition hover:text-slate-900" to="/admin/users">
+                User Management
+              </Link>
+            ) : null}
+          </nav>
           <button
             onClick={logout}
             className="rounded bg-slate-200 px-3 py-1 text-sm text-slate-800 transition hover:bg-slate-300"

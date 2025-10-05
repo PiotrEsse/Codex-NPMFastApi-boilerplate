@@ -55,6 +55,17 @@ Backend/
 └── requirements.txt
 ```
 
+## User Management API
+
+The `/users` router now exposes superuser-only management endpoints in addition to the existing `/users/me` profile route:
+
+- `GET /users/` – list all users (requires superuser)
+- `POST /users/` – create a new user with optional activation and superuser flags
+- `PATCH /users/{user_id}` – update profile details, roles, activation state, or reset the password
+- `DELETE /users/{user_id}` – remove a user
+
+Passwords are hashed with Argon2 via Passlib. Installing dependencies with `pip install -r requirements.txt` pulls in the required `argon2-cffi` backend automatically.
+
 ## Testing
 
 Run pytest from the `Backend/` directory:

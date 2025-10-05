@@ -2,8 +2,12 @@ import { Navigate, Outlet } from "react-router-dom";
 
 import { useAuth } from "./AuthProvider";
 
-export function ProtectedRoute() {
-  const { isAuthenticated, initializing } = useAuth();
+type ProtectedRouteProps = {
+  requireSuperuser?: boolean;
+};
+
+export function ProtectedRoute({ requireSuperuser = false }: ProtectedRouteProps) {
+  const { isAuthenticated, initializing, user } = useAuth();
 
   if (initializing) {
     return <div className="flex h-screen items-center justify-center">Loading...</div>;
@@ -11,6 +15,10 @@ export function ProtectedRoute() {
 
   if (!isAuthenticated) {
     return <Navigate to="/login" replace />;
+  }
+
+  if (requireSuperuser && !user?.is_superuser) {
+    return <Navigate to="/dashboard" replace />;
   }
 
   return <Outlet />;

@@ -11,6 +11,8 @@ class UserBase(BaseModel):
 
 class UserCreate(UserBase):
     password: str
+    is_active: bool = True
+    is_superuser: bool = False
 
 
 class UserRead(UserBase):
@@ -25,5 +27,16 @@ class UserRead(UserBase):
 
 
 class UserUpdate(BaseModel):
+    email: EmailStr | None = None
     full_name: str | None = None
     password: str | None = None
+    is_active: bool | None = None
+    is_superuser: bool | None = None
+
+
+class UserAdminCreate(UserCreate):
+    pass
+
+
+class UserAdminUpdate(UserUpdate):
+    pass
