@@ -56,5 +56,4 @@ This repository is a universal starter kit for projects that need a FastAPI back
 - Extend the frontend with additional pages, components, and API hooks.
 - Introduce CI/CD, linting, type checking, or containerized deployment as needed.
 
-For detailed configuration options, troubleshooting tips, and architecture notes, 
-consult the READMEs inside the [`Backend`](Backend/README.md) and [`Frontend`](Frontend/README.md) directories.
+For detailed configuration options, troubleshooting tips, and architecture notes, consult the READMEs inside the [`Backend`](Backend/README.md) and [`Frontend`](Frontend/README.md) directories.
