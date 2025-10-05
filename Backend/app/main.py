@@ -22,10 +22,16 @@ def create_app() -> FastAPI:
 
     app.add_middleware(TrustedHostMiddleware, allowed_hosts=["*"])
 
+    allow_origins = settings.backend_cors_origins or ["*"]
+    allow_credentials = settings.cors_allow_credentials
+    if "*" in allow_origins:
+        allow_origins = ["*"]
+        allow_credentials = False
+
     app.add_middleware(
         CORSMiddleware,
-        allow_origins=settings.backend_cors_origins,
-        allow_credentials=True,
+        allow_origins=allow_origins,
+        allow_credentials=allow_credentials,
         allow_methods=["*"],
         allow_headers=["*"],
     )

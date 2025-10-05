@@ -11,11 +11,9 @@ class Settings(BaseSettings):
     project_name: str = "Full Stack Boilerplate"
     environment: str = "development"
 
-    backend_cors_origins: List[str] = [
-        "http://localhost:5173",
-        "http://127.0.0.1:5173",
-        "http://testserver"
-    ]
+    backend_cors_origins: List[str] = ["*"]
+
+    cors_allow_credentials: bool = True
 
     database_url: str = (
         "postgresql+asyncpg://postgres:postgres@db:5432/postgres"
