@@ -11,7 +11,7 @@ class Settings(BaseSettings):
     project_name: str = "Full Stack Boilerplate"
     environment: str = "development"
 
-    backend_cors_origins: List[str] = ["*"]
+    backend_cors_origins: List[str] | str = ["*"]
 
     cors_allow_credentials: bool = True
 
@@ -32,7 +32,10 @@ class Settings(BaseSettings):
     @classmethod
     def split_cors_origins(cls, value: List[str] | str) -> List[str]:
         if isinstance(value, str):
-            return [origin.strip() for origin in value.split(",") if origin.strip()]
+            stripped = value.strip()
+            if not stripped:
+                return []
+            return [origin.strip() for origin in stripped.split(",") if origin.strip()]
         return value
 
 
